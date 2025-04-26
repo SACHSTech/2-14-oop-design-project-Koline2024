@@ -6,12 +6,13 @@ public class Task{
     private String status;
     private String deadline;
     private ArrayList<Task> dependency;
-
+    
     public Task(String name, String deadline, ArrayList<Task> dependency){
         this.name = name;
         this.deadline = deadline;
+        this.dependency = new ArrayList<>();
         for(Task task : dependency){
-            this.dependency.add(task);
+            this.dependency.add(new Task(task.getName(), task.getDeadLine(), task.getDependency()));
         }
     }
 

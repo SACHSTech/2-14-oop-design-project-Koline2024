@@ -2,6 +2,7 @@ public abstract class TeamMember {
     
     protected String name;
     protected String workHours;
+    protected String role;
 
     public TeamMember(String name, String workHours){
         this.name = name;
@@ -16,5 +17,9 @@ public abstract class TeamMember {
         return workHours;
     }
 
-    
+    public String getRole(){
+        return role;
+    }
+
+    public abstract void performDuties(Project project, String information);
 }
