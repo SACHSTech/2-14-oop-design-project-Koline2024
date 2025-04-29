@@ -4,16 +4,18 @@ public class Task{
 
     private String name;
     private String status;
-    private String deadline;
-    private ArrayList<Task> dependency;
+    private String hoursNeeded;
+    //private ArrayList<Task> dependency;
+    protected ArrayList<Worker> assignedWorkers;
     
-    public Task(String name, String deadline, ArrayList<Task> dependency){
+    public Task(String name, String hoursNeeded){
         this.name = name;
-        this.deadline = deadline;
-        this.dependency = new ArrayList<>();
-        for(Task task : dependency){
-            this.dependency.add(new Task(task.getName(), task.getDeadLine(), task.getDependency()));
-        }
+        this.hoursNeeded = hoursNeeded;
+        //this.dependency = new ArrayList<>();
+        // for(Task task : dependency){
+        //     this.dependency.add(new Task(task.getName(), task.getDeadLine(), task.getDependency()));
+        // }
+        this.status = "Incomplete";
     }
 
     public String getName(){
@@ -29,19 +31,55 @@ public class Task{
     }
 
     public String getDeadLine(){
-        return deadline;
+        return hoursNeeded;
     }
 
-    public ArrayList<Task> getDependency(){
-        return dependency;
+    // public ArrayList<Task> getDependency(){
+    //     return dependency;
+    // }
+
+    // public void addDependency(Task task){
+    //     dependency.add(task);
+    // }
+
+    public ArrayList<Worker> getAllWorkers(){
+        return assignedWorkers;
     }
 
-    public void addDependency(Task task){
-        dependency.add(task);
+    public void addWorker(Worker worker){
+        assignedWorkers.add(worker);
     }
 
     public String toString(){
-        return name + "( " + status + " ) Due By:" + deadline;
+        return name + " (" + status + ") Hours Needed: " + hoursNeeded;
+    }
+
+    public boolean isNotYetStarted(){
+        if(status.equals("Incomplete")){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isInProgress(){
+        if(status.equals("Working")){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isComplete(){
+        if(status.equals("Complete")){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isStuck(){
+        if(status.equals("Stuck")){
+            return true;
+        }
+        return false;
     }
 
 

@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class Project {
 
-    protected ArrayList<Task> taskList;
-    protected ArrayList<TeamMember> teamList;
+    protected ArrayList<Task> taskList = new ArrayList<>();
+    protected ArrayList<TeamMember> teamList = new ArrayList<>();
 
     public Project(ArrayList<Task> taskList, ArrayList<TeamMember> teamList) {
         for (Task task : taskList) {
-            this.taskList.add(new Task(task.getName(), task.getDeadLine(), task.getDependency()));
+            this.taskList.add(new Task(task.getName(), task.getDeadLine()));
         }
         for (TeamMember member : teamList) {
             if (member.getRole().equals("Worker")) {
@@ -53,6 +53,18 @@ public class Project {
         for (Task task : taskList) {
             if (task.getStatus().equals(search)) {
                 toBeReturned.add(task);
+            }
+        }
+        return toBeReturned;
+    }
+
+    public ArrayList<Task> getTasksByWorker(Worker worker){
+        ArrayList<Task> toBeReturned = new ArrayList<>();
+        for(Task task : taskList){
+            for(Worker worker2 : task.getAllWorkers()){
+                if(worker2.equals(worker)){
+                    toBeReturned.add(task);
+                }
             }
         }
         return toBeReturned;

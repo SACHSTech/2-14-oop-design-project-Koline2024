@@ -21,5 +21,5 @@ public abstract class TeamMember {
         return role;
     }
 
-    public abstract void performDuties(Project project, String information);
+    public abstract void getTasksToDo(Project project);
 }
