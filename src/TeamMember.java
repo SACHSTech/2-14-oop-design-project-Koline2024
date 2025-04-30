@@ -1,24 +1,24 @@
 public abstract class TeamMember {
-    
+
     protected String name;
     protected String workHours;
     protected String role;
     protected double salary;
 
-    public TeamMember(String name, double salary){
+    public TeamMember(String name, double salary) {
         this.name = name;
         this.salary = salary;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getWorkHours(){
+    public String getWorkHours() {
         return workHours;
     }
 
-    public String getRole(){
+    public String getRole() {
         return role;
     }
 

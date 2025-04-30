@@ -30,12 +30,13 @@ public class Main {
         Daniel.assignTask(Bob, removeTheCorpsesFromTheFreezer);
         Daniel.assignTask(Adam, makeCalls);
         Daniel.assignTask(Adam, fixTheOfficeCoffeeMachine);
-        Adam.updateTaskStatus("Stuck", makeCalls);
+        Daniel.assignTask(Cindy, removeTheCorpsesFromTheFreezer);
+        Adam.updateTaskStatusToStuck(makeCalls);
+        Cindy.updateTaskStatusToComplete(fixTheSpaghettiCode);
+
+        Cindy.getTasksToDo(officeTasks);
 
         //Daniel.checkProgress(officeTasks);
-        Daniel.getTasksToDo(officeTasks);
-        Daniel.paySalary(Bob);
-        Daniel.checkSalaryPayments(officeTasks);
 
         
         
