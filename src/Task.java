@@ -4,12 +4,12 @@ public class Task {
 
     private String name;
     private String status;
-    private String hoursNeeded;
+    private int skillNeeded;
     protected ArrayList<Worker> assignedWorkers = new ArrayList<>();
 
-    public Task(String name, String hoursNeeded) {
+    public Task(String name, int skillNeeded) {
         this.name = name;
-        this.hoursNeeded = hoursNeeded;
+        this.skillNeeded = skillNeeded;
         this.status = "Incomplete";
     }
 
@@ -25,8 +25,8 @@ public class Task {
         status = input;
     }
 
-    public String getDeadLine() {
-        return hoursNeeded;
+    public int getSkillLevel() {
+        return skillNeeded;
     }
 
     public ArrayList<Worker> getAllWorkers() {
@@ -38,7 +38,7 @@ public class Task {
     }
 
     public String toString() {
-        return name + " (" + status + ") Hours Needed: " + hoursNeeded + " - Assigned To: " + getAllWorkers();
+        return name + " (" + status + ") Skill Level: " + skillNeeded + " - Assigned To: " + getAllWorkers();
     }
 
     public boolean isNotYetStarted() {

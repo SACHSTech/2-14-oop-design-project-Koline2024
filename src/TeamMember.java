@@ -1,7 +1,6 @@
 public abstract class TeamMember {
 
     protected String name;
-    protected String workHours;
     protected String role;
     protected double salary;
 
@@ -12,10 +11,6 @@ public abstract class TeamMember {
 
     public String getName() {
         return name;
-    }
-
-    public String getWorkHours() {
-        return workHours;
     }
 
     public String getRole() {

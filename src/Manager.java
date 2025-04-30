@@ -20,8 +20,13 @@ public class Manager extends TeamMember {
     }
 
     public void assignTask(Worker worker, Task task) {
+        if(worker.getSkillLevel() >= task.getSkillLevel()){
         task.addWorker(worker);
         worker.addTask(task);
+        }else{
+            System.out.println(worker.getName() + " is not qualified to: " + task.getName());
+        }
+
     }
 
     public void checkProgress(Project project) {

@@ -2,11 +2,14 @@ import java.util.ArrayList;
 
 public class Worker extends TeamMember {
 
-     boolean salaryPaid = false;
-     ArrayList<Task> assignedTasks = new ArrayList<>();
+     private boolean salaryPaid = false;
+     private ArrayList<Task> assignedTasks = new ArrayList<>();
+     private int skillLevel;
 
-     public Worker(String name, double salary) {
+
+     public Worker(String name, double salary, int skillLevel) {
           super(name, salary);
+          this.skillLevel = skillLevel;
           role = "Worker";
      }
 
@@ -22,6 +25,9 @@ public class Worker extends TeamMember {
           }
      }
 
+     public int getSkillLevel() {
+          return skillLevel;
+      }
 
      public void updateTaskStatusToStuck(Task task){
           task.setStatus("Stuck");
