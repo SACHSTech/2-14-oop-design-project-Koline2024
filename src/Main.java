@@ -26,6 +26,16 @@ public class Main {
 
         Project officeTasks = new Project(veryStrangeTaskList, wageSlaves);
 
-        Daniel.checkProgress(officeTasks);
+        Daniel.assignTask(Cindy, fixTheSpaghettiCode);
+        Daniel.assignTask(Bob, removeTheCorpsesFromTheFreezer);
+        Daniel.assignTask(Adam, makeCalls);
+        Daniel.assignTask(Adam, fixTheOfficeCoffeeMachine);
+        Adam.updateTaskStatus("Stuck", makeCalls);
+        //Daniel.checkProgress(officeTasks);
+        //Daniel.getTasksToDo(officeTasks);
+
+
+        //System.out.println(removeTheCorpsesFromTheFreezer);
+
     }
 }

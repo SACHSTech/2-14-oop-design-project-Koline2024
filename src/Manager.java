@@ -5,7 +5,6 @@ public class Manager extends TeamMember{
         role = "Manager";
     }
 
-    @Override
     public void getTasksToDo(Project project){
         System.out.println("Address these issues: ");
         for(Task task : project.getTasksByStatus("Stuck")){

@@ -6,7 +6,7 @@ public class Task{
     private String status;
     private String hoursNeeded;
     //private ArrayList<Task> dependency;
-    protected ArrayList<Worker> assignedWorkers;
+    protected ArrayList<Worker> assignedWorkers = new ArrayList<>();
     
     public Task(String name, String hoursNeeded){
         this.name = name;
@@ -51,7 +51,7 @@ public class Task{
     }
 
     public String toString(){
-        return name + " (" + status + ") Hours Needed: " + hoursNeeded;
+        return name + " (" + status + ") Hours Needed: " + hoursNeeded + " - Assigned To: " + getAllWorkers();
     }
 
     public boolean isNotYetStarted(){

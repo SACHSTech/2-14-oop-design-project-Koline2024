@@ -6,16 +6,8 @@ public class Project {
     protected ArrayList<TeamMember> teamList = new ArrayList<>();
 
     public Project(ArrayList<Task> taskList, ArrayList<TeamMember> teamList) {
-        for (Task task : taskList) {
-            this.taskList.add(new Task(task.getName(), task.getDeadLine()));
-        }
-        for (TeamMember member : teamList) {
-            if (member.getRole().equals("Worker")) {
-                this.teamList.add(new Worker(member.getName(), member.getWorkHours()));
-            } else if (member.getRole().equals("Manager")) {
-                this.teamList.add(new Manager(member.getName(), member.getWorkHours()));
-            }
-        }
+       this.taskList = taskList;
+       this.teamList = teamList;
     }
 
     public void addTask(Task task) {
