@@ -1,7 +1,9 @@
 public class Worker extends TeamMember{
     
-    public Worker(String name, String workHours){
-        super(name, workHours);
+     boolean salaryPaid = false;
+
+    public Worker(String name, double salary){
+        super(name, salary);
         role = "Worker";
     }
 
@@ -19,6 +21,22 @@ public class Worker extends TeamMember{
 
    public void updateTaskStatus(String status, Task task){
         task.setStatus(status);
+   }
+
+   public boolean hasBeenPaid(){
+     return salaryPaid;
+   }
+
+   public void changePayStatus(){
+     if(salaryPaid == false){
+          salaryPaid = true;
+     }else{
+          salaryPaid = false;
+     }
+   }
+
+   public double getSalary(){
+     return salary;
    }
 
    public String toString(){

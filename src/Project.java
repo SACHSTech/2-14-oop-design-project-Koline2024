@@ -74,4 +74,14 @@ public class Project {
         }
     }
 
+    public ArrayList<Worker> getPayees() {
+        ArrayList<Worker> payees = new ArrayList<>();
+        for (TeamMember member : teamList) {
+            if (member.getRole().equals("Worker")) {
+                payees.add((Worker)member);
+            }
+        }
+        return payees;
+    }
+
 }

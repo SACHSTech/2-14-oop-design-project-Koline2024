@@ -3,10 +3,11 @@ public abstract class TeamMember {
     protected String name;
     protected String workHours;
     protected String role;
+    protected double salary;
 
-    public TeamMember(String name, String workHours){
+    public TeamMember(String name, double salary){
         this.name = name;
-        this.workHours = workHours;
+        this.salary = salary;
     }
 
     public String getName(){

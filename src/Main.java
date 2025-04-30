@@ -2,10 +2,10 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args){
 
-        Worker Adam = new Worker("Adam", "3");
-        Worker Bob = new Worker("Bob", "6");
-        Worker Cindy = new Worker("Cindy", "4");
-        Manager Daniel = new Manager("Daniel", "3");
+        Worker Adam = new Worker("Adam", 3);
+        Worker Bob = new Worker("Bob", 6);
+        Worker Cindy = new Worker("Cindy", 4);
+        Manager Daniel = new Manager("Daniel", 3);
 
         Task makeCalls = new Task("Make Calls", "3");
         Task fixTheOfficeCoffeeMachine = new Task("Fix the office coffee machine", "1");
@@ -31,11 +31,15 @@ public class Main {
         Daniel.assignTask(Adam, makeCalls);
         Daniel.assignTask(Adam, fixTheOfficeCoffeeMachine);
         Adam.updateTaskStatus("Stuck", makeCalls);
+
         //Daniel.checkProgress(officeTasks);
-        //Daniel.getTasksToDo(officeTasks);
+        Daniel.getTasksToDo(officeTasks);
+        Daniel.paySalary(Bob);
+        Daniel.checkSalaryPayments(officeTasks);
 
+        
+        
 
-        //System.out.println(removeTheCorpsesFromTheFreezer);
 
     }
 }
