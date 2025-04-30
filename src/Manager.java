@@ -14,7 +14,7 @@ public class Manager extends TeamMember {
         System.out.println("You must pay these people: ");
         for (Worker person : project.getPayees()) {
             if (person.hasBeenPaid() == false) {
-                System.out.println(person);
+                System.out.println(person + " Salary: $" + person.getSalary());
             }
         }
     }
@@ -43,6 +43,12 @@ public class Manager extends TeamMember {
     }
 
     public void paySalary(Worker worker) {
+        System.out.println("Worker has been paid. ");
         worker.changePayStatus();
+    }
+
+    public void fireWorker (Worker worker, Project project){
+        System.out.println("They have been fired. ");
+        project.removeMember(worker);
     }
 }

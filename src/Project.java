@@ -84,4 +84,13 @@ public class Project {
         return payees;
     }
 
+    public Worker getWorkerByName(String name){
+        for(TeamMember member : teamList){
+            if(member.getName().equals(name)){
+                return (Worker) member;
+            }
+        }
+        return null;
+    }
+
 }
