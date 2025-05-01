@@ -88,7 +88,7 @@ public class Main {
         Hong.updateTaskStatusToStuck(cookSlop);
         Fiona.updateTaskStatusToStuck(feedTheInternsSlop);
         
-        System.out.println("Welcome, " + manager.getName());
+        System.out.println("Welcome, manager " + manager.getName());
         while(!input.equals("5")){
             System.out.println("1: Get daily tasks");
             System.out.println("2: Pay employees");
@@ -113,14 +113,19 @@ public class Main {
                     System.out.println(task);
                 }
             }else if(input.equals("4")){
-                System.out.println(officeTasks.getAllTasks());
+                for(Task task : officeTasks.getAllTasks()){
+                    System.out.println(task);
+                }
                 System.out.println("Assign what task?");
                 input2 = reader.readLine();
                 System.out.println(officeTasks.getAllWorkers());
+                for(Worker worker : officeTasks.getAllWorkers()){
+                    System.out.println(worker);
+                }
                 System.out.println("To which worker?");
                 input3 = reader.readLine();
 
-                manager.assignTask(officeTasks.getWorkerByName(input2), officeTasks.getTasksByName(input3));
+                manager.assignTask(officeTasks.getWorkerByName(input3), officeTasks.getTasksByName(input2));
                 
             }else if(input.equals("5")){
                 break;
