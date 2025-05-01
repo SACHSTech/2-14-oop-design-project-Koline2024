@@ -58,6 +58,6 @@ public class Worker extends TeamMember {
      }
 
      public String toString() {
-          return name;
+          return name + " Skill Level: " + skillLevel;
      }
 }

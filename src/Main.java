@@ -4,6 +4,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IOException{
+        
+      // troubleshoot assigning tasks (returns null for some reason)
+
 
         String input = "";
         String input2;
@@ -72,6 +75,19 @@ public class Main {
 
         Project officeTasks = new Project(veryStrangeTaskList, wageSlaves);
 
+        manager.assignTask(Adam, fixTheOfficeCoffeeMachine);
+        manager.assignTask(Cindy, untangleTheHDMICables);
+        manager.assignTask(Hong, fixTheSpaghettiCode);
+        manager.assignTask(George, deportTheHRTeam);
+        manager.assignTask(Emmanuel, cry);
+        manager.assignTask(Hong, cookSlop);
+        manager.assignTask(Fiona, feedTheInternsSlop);
+
+        Emmanuel.updateTaskStatusToStuck(cry);
+        Cindy.updateTaskStatusToComplete(untangleTheHDMICables);
+        Hong.updateTaskStatusToStuck(cookSlop);
+        Fiona.updateTaskStatusToStuck(feedTheInternsSlop);
+        
         System.out.println("Welcome, " + manager.getName());
         while(!input.equals("5")){
             System.out.println("1: Get daily tasks");
@@ -86,14 +102,21 @@ public class Main {
                 System.out.println(officeTasks.getPayees());
                 System.out.println("Pay who? ");
                 input = reader.readLine();
+                try{
                 manager.paySalary(officeTasks.getWorkerByName(input));
+                System.out.println("Worker has been paid. ");
+                }catch(Exception e){
+                    System.out.println("Worker not found. ");
+                }
             }else if(input.equals("3")){
-                officeTasks.getAllTasks();
+                for(Task task : officeTasks.getAllTasks()){
+                    System.out.println(task);
+                }
             }else if(input.equals("4")){
-                officeTasks.getAllTasks();
+                System.out.println(officeTasks.getAllTasks());
                 System.out.println("Assign what task?");
                 input2 = reader.readLine();
-                officeTasks.getAllWorkers();
+                System.out.println(officeTasks.getAllWorkers());
                 System.out.println("To which worker?");
                 input3 = reader.readLine();
 

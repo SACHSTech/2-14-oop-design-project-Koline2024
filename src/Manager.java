@@ -43,7 +43,6 @@ public class Manager extends TeamMember {
     }
 
     public void paySalary(Worker worker) {
-        System.out.println("Worker has been paid. ");
         worker.changePayStatus();
     }
 
