@@ -2,12 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         
-      // troubleshoot assigning tasks (returns null for some reason)
-
-
         String input = "";
         String input2;
         String input3;
@@ -18,10 +16,10 @@ public class Main {
         Worker Bob = new Worker("Bob", 6, 2);
         Worker Cindy = new Worker("Cindy", 7, 4);
         Worker Daniel = new Worker("Daniel", 5, 3);
-        Worker Emmanuel = new Worker ("Emmanuel", 10, 11);
+        Worker Emmanuel = new Worker("Emmanuel", 10, 11);
         Worker Fiona = new Worker("Fiona", 8, 5);
         Worker George = new Worker("George", 4, 8);
-        Worker Hong = new Worker ("Hong", 25, 30);
+        Worker Hong = new Worker("Hong", 25, 30);
 
         System.out.println("Enter your name: ");
         input = reader.readLine();
@@ -59,8 +57,6 @@ public class Main {
         veryStrangeTaskList.add(deportTheHRTeam);
         veryStrangeTaskList.add(bribeOSHA);
         veryStrangeTaskList.add(cry);
-        
-
 
         ArrayList<TeamMember> wageSlaves = new ArrayList<>();
         wageSlaves.add(Adam);
@@ -87,56 +83,53 @@ public class Main {
         Cindy.updateTaskStatusToComplete(untangleTheHDMICables);
         Hong.updateTaskStatusToStuck(cookSlop);
         Fiona.updateTaskStatusToStuck(feedTheInternsSlop);
-        
+
         System.out.println("Welcome, manager " + manager.getName());
-        while(!input.equals("5")){
+        while (!input.equals("5")) {
             System.out.println("1: Get daily tasks");
             System.out.println("2: Pay employees");
             System.out.println("3: Get task list");
             System.out.println("4: Assign tasks");
             System.out.println("5: Exit");
             input = reader.readLine();
-            if(input.equals("1")){
+            if (input.equals("1")) {
                 manager.getTasksToDo(officeTasks);
-            }else if(input.equals("2")){
+            } else if (input.equals("2")) {
                 System.out.println(officeTasks.getPayees());
                 System.out.println("Pay who? ");
                 input = reader.readLine();
-                try{
-                manager.paySalary(officeTasks.getWorkerByName(input));
-                System.out.println("Worker has been paid. ");
-                }catch(Exception e){
+                try {
+                    manager.paySalary(officeTasks.getWorkerByName(input));
+                    System.out.println("Worker has been paid. ");
+                } catch (Exception e) {
                     System.out.println("Worker not found. ");
                 }
-            }else if(input.equals("3")){
-                for(Task task : officeTasks.getAllTasks()){
+            } else if (input.equals("3")) {
+                for (Task task : officeTasks.getAllTasks()) {
                     System.out.println(task);
                 }
-            }else if(input.equals("4")){
-                for(Task task : officeTasks.getAllTasks()){
+            } else if (input.equals("4")) {
+                for (Task task : officeTasks.getAllTasks()) {
                     System.out.println(task);
                 }
                 System.out.println("Assign what task?");
                 input2 = reader.readLine();
                 System.out.println(officeTasks.getAllWorkers());
-                for(Worker worker : officeTasks.getAllWorkers()){
+                for (Worker worker : officeTasks.getAllWorkers()) {
                     System.out.println(worker);
                 }
                 System.out.println("To which worker?");
                 input3 = reader.readLine();
 
                 manager.assignTask(officeTasks.getWorkerByName(input3), officeTasks.getTasksByName(input2));
-                
-            }else if(input.equals("5")){
+
+            } else if (input.equals("5")) {
                 break;
-            }else{
+            } else {
                 System.out.println("Invalid input. ");
             }
 
         }
-
-
-
 
     }
 }

@@ -6,13 +6,19 @@ public class Worker extends TeamMember {
      private ArrayList<Task> assignedTasks = new ArrayList<>();
      private int skillLevel;
 
-
      public Worker(String name, double salary, int skillLevel) {
           super(name, salary);
           this.skillLevel = skillLevel;
           role = "Worker";
      }
 
+     /**
+      * Returns a list of tasks that are assigned to the worker and are incomplete.
+      * 
+      * @param project
+      * @return void
+      * @author ChrisX
+      */
      public void getTasksToDo(Project project) {
           System.out.println("These are your tasks: ");
           for (Task toDo : project.getAllTasks()) {
@@ -27,13 +33,13 @@ public class Worker extends TeamMember {
 
      public int getSkillLevel() {
           return skillLevel;
-      }
+     }
 
-     public void updateTaskStatusToStuck(Task task){
+     public void updateTaskStatusToStuck(Task task) {
           task.setStatus("Stuck");
      }
 
-     public void updateTaskStatusToComplete(Task task){
+     public void updateTaskStatusToComplete(Task task) {
           task.setStatus("Complete");
      }
 
@@ -41,6 +47,11 @@ public class Worker extends TeamMember {
           return salaryPaid;
      }
 
+     /**
+      * Method changes pay status of worker.
+      * 
+      * @author ChrisX
+      */
      public void changePayStatus() {
           if (salaryPaid == false) {
                salaryPaid = true;
@@ -53,7 +64,7 @@ public class Worker extends TeamMember {
           return salary;
      }
 
-     public void addTask(Task task){
+     public void addTask(Task task) {
           assignedTasks.add(task);
      }
 

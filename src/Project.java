@@ -73,6 +73,13 @@ public class Project {
         }
     }
 
+    /**
+     * Returns arraylist of workers who have not yet been paid.
+     * 
+     * @return ArrayList of workers
+     * @param void
+     * @author ChrisX
+     */
     public ArrayList<Worker> getPayees() {
         ArrayList<Worker> payees = new ArrayList<>();
         for (TeamMember member : teamList) {
@@ -83,19 +90,19 @@ public class Project {
         return payees;
     }
 
-    public Worker getWorkerByName(String name){
-        for(TeamMember member : teamList){
-            if(member.getName().equals(name)){
+    public Worker getWorkerByName(String name) {
+        for (TeamMember member : teamList) {
+            if (member.getName().equals(name)) {
                 return (Worker) member;
             }
         }
         return null;
     }
 
-    public ArrayList<Worker> getAllWorkers(){
+    public ArrayList<Worker> getAllWorkers() {
         ArrayList<Worker> toBeReturned = new ArrayList<>();
-        for(TeamMember person : teamList){
-            if(person.getRole().equals("Worker")){
+        for (TeamMember person : teamList) {
+            if (person.getRole().equals("Worker")) {
                 toBeReturned.add((Worker) person);
             }
         }
