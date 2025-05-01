@@ -39,6 +39,7 @@ public class Manager extends TeamMember {
         if (worker.getSkillLevel() >= task.getSkillLevel()) {
             task.addWorker(worker);
             worker.addTask(task);
+            System.out.println(worker.getName() + " has been assigned to " + task.getName());
         } else {
             System.out.println(worker.getName() + " is not qualified to: " + task.getName());
         }

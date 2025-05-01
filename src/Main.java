@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        
+
         String input = "";
         String input2;
         String input3;
@@ -33,10 +33,8 @@ public class Main {
         Task cookSlop = new Task("Cook slop", 2);
         Task untangleTheHDMICables = new Task("Untangle the HDMI cables", 4);
         Task crawlUnderBossDesk = new Task("Crawl under the boss's desk", 5);
-        Task manufactureLuck = new Task("Manufacture luck", 15);
         Task feedTheInternsSlop = new Task("Feed the interns slop", 2);
         Task chainTheInternsToTheWall = new Task("Chain the interns to the wall", 7);
-        Task tellJesusToTakeTheWheel = new Task("Tell Jesus to take the wheel", 1);
         Task deportTheHRTeam = new Task("Deport the HR team", 8);
         Task bribeOSHA = new Task("Bribe OSHA", 10);
         Task cry = new Task("Cry", 0);
@@ -50,10 +48,8 @@ public class Main {
         veryStrangeTaskList.add(cookSlop);
         veryStrangeTaskList.add(untangleTheHDMICables);
         veryStrangeTaskList.add(crawlUnderBossDesk);
-        veryStrangeTaskList.add(manufactureLuck);
         veryStrangeTaskList.add(feedTheInternsSlop);
         veryStrangeTaskList.add(chainTheInternsToTheWall);
-        veryStrangeTaskList.add(tellJesusToTakeTheWheel);
         veryStrangeTaskList.add(deportTheHRTeam);
         veryStrangeTaskList.add(bribeOSHA);
         veryStrangeTaskList.add(cry);
@@ -92,41 +88,50 @@ public class Main {
             System.out.println("4: Assign tasks");
             System.out.println("5: Exit");
             input = reader.readLine();
-            if (input.equals("1")) {
-                manager.getTasksToDo(officeTasks);
-            } else if (input.equals("2")) {
-                System.out.println(officeTasks.getPayees());
-                System.out.println("Pay who? ");
-                input = reader.readLine();
-                try {
-                    manager.paySalary(officeTasks.getWorkerByName(input));
-                    System.out.println("Worker has been paid. ");
-                } catch (Exception e) {
-                    System.out.println("Worker not found. ");
-                }
-            } else if (input.equals("3")) {
-                for (Task task : officeTasks.getAllTasks()) {
-                    System.out.println(task);
-                }
-            } else if (input.equals("4")) {
-                for (Task task : officeTasks.getAllTasks()) {
-                    System.out.println(task);
-                }
-                System.out.println("Assign what task?");
-                input2 = reader.readLine();
-                System.out.println(officeTasks.getAllWorkers());
-                for (Worker worker : officeTasks.getAllWorkers()) {
-                    System.out.println(worker);
-                }
-                System.out.println("To which worker?");
-                input3 = reader.readLine();
-
-                manager.assignTask(officeTasks.getWorkerByName(input3), officeTasks.getTasksByName(input2));
-
-            } else if (input.equals("5")) {
-                break;
-            } else {
-                System.out.println("Invalid input. ");
+            switch (input) {
+                case "1":
+                    manager.getTasksToDo(officeTasks);
+                    break;
+                case "2":
+                    for(Worker payee : officeTasks.getPayees()){
+                        System.out.println(payee);
+                    }
+                    System.out.println("Pay who? ");
+                    input = reader.readLine();
+                    try {
+                        manager.paySalary(officeTasks.getWorkerByName(input));
+                        System.out.println("Worker has been paid. ");
+                    } catch (Exception e) {
+                        System.out.println("Worker not found. ");
+                    }
+                    break;
+                case "3":
+                    for (Task task : officeTasks.getAllTasks()) {
+                        System.out.println(task);
+                    }
+                    break;
+                case "4":
+                    for (Task task : officeTasks.getAllTasks()) {
+                        System.out.println(task);
+                    }
+                    System.out.println("Assign what task?");
+                    try {
+                        input2 = reader.readLine();
+                        for (Worker worker : officeTasks.getAllWorkers()) {
+                            System.out.println(worker);
+                        }
+                        System.out.println("To which worker?");
+                        input3 = reader.readLine();
+                        manager.assignTask(officeTasks.getWorkerByName(input3), officeTasks.getTasksByName(input2));
+                    } catch (Exception e) {
+                        System.out.println("Invalid inputs!");
+                    }
+                    break;
+                case "5":
+                    break;
+                default:
+                    System.out.println("Invalid input. ");
+                    break;
             }
 
         }
