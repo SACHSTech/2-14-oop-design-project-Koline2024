@@ -30,14 +30,13 @@ public class Project {
         return taskList;
     }
 
-    public ArrayList<Task> getTasksByName(String search) {
-        ArrayList<Task> toBeReturned = new ArrayList<>();
+    public Task getTasksByName(String search) {
         for (Task task : taskList) {
             if (task.getName().equals(search)) {
-                toBeReturned.add(task);
+                return task;
             }
         }
-        return toBeReturned;
+        return null;
     }
 
     public ArrayList<Task> getTasksByStatus(String search) {
@@ -91,6 +90,16 @@ public class Project {
             }
         }
         return null;
+    }
+
+    public ArrayList<Worker> getAllWorkers(){
+        ArrayList<Worker> toBeReturned = new ArrayList<>();
+        for(TeamMember person : teamList){
+            if(person.getRole().equals("Worker")){
+                toBeReturned.add((Worker) person);
+            }
+        }
+        return toBeReturned;
     }
 
 }

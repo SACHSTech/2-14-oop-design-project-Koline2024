@@ -90,10 +90,19 @@ public class Main {
             }else if(input.equals("3")){
                 officeTasks.getAllTasks();
             }else if(input.equals("4")){
-                System.out.println("Assign what task?");
                 officeTasks.getAllTasks();
+                System.out.println("Assign what task?");
                 input2 = reader.readLine();
+                officeTasks.getAllWorkers();
+                System.out.println("To which worker?");
+                input3 = reader.readLine();
+
+                manager.assignTask(officeTasks.getWorkerByName(input2), officeTasks.getTasksByName(input3));
                 
+            }else if(input.equals("5")){
+                break;
+            }else{
+                System.out.println("Invalid input. ");
             }
 
         }
