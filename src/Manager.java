@@ -36,10 +36,18 @@ public class Manager extends TeamMember {
      * @author ChrisX
      */
     public void assignTask(Worker worker, Task task) {
-        if (worker.getSkillLevel() >= task.getSkillLevel()) {
+        boolean hasBeenAssigned = false;
+        for (Worker guy : task.getAllWorkers()) {
+            if (guy.getName().equals(worker.getName())) {
+                hasBeenAssigned = true;
+            }
+        }
+        if (worker.getSkillLevel() >= task.getSkillLevel() && hasBeenAssigned == false) {
             task.addWorker(worker);
             worker.addTask(task);
             System.out.println(worker.getName() + " has been assigned to " + task.getName());
+        } else if (hasBeenAssigned == true) {
+            System.out.println(worker.getName() + " is already working on " + task.getName());
         } else {
             System.out.println(worker.getName() + " is not qualified to: " + task.getName());
         }

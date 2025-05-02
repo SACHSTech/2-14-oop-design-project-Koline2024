@@ -49,7 +49,7 @@ public class Worker extends TeamMember {
 
      /**
       * Method changes pay status of worker.
-      * 
+      * @return void
       * @author ChrisX
       */
      public void changePayStatus() {

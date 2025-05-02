@@ -5,7 +5,7 @@ public class Task {
     private String name;
     private String status;
     private int skillNeeded;
-    protected ArrayList<Worker> assignedWorkers = new ArrayList<>();
+    private ArrayList<Worker> assignedWorkers = new ArrayList<>();
 
     public Task(String name, int skillNeeded) {
         this.name = name;
